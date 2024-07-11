@@ -14,36 +14,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import g4.sisvita.gestion_usuarios.model.Administrador;
-import g4.sisvita.gestion_usuarios.service.AdministradorService;
+import g4.sisvita.gestion_usuarios.model.Carrera;
+import g4.sisvita.gestion_usuarios.service.CarreraService;
 
 @RestController
-@RequestMapping("/api/v1/administradores")
-public class AdministradorController {
+@RequestMapping("api/v1/carrera")
+public class CarreraController {
     
     @Autowired
-    private AdministradorService administradorService;
+    private CarreraService carreraService;
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void saveAdministrador(@RequestBody Administrador administrador) {
-        administradorService.saveAdministrador(administrador);
+    public void saveCarrera(@RequestBody Carrera carrera) {
+        carreraService.saveCarrera(carrera);
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Administrador>> getAllAdministradores() {
-        return ResponseEntity.ok(administradorService.getAdministradores());
+    public ResponseEntity<List<Carrera>> getAllCarreras() {
+        return ResponseEntity.ok(carreraService.getCarreras());
     }
 
     @GetMapping("/search/{id}")
-    public ResponseEntity<Administrador> getAdministradorById(@PathVariable int id) {
-        Administrador administrador = administradorService.getAdministradorById(id);
-        return administrador != null ? ResponseEntity.ok(administrador) : ResponseEntity.notFound().build();
+    public ResponseEntity<Carrera> getCarreraById(@PathVariable int id) {
+        Carrera carrera = carreraService.getCarreraById(id);
+        return carrera != null ? ResponseEntity.ok(carrera) : ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteAdministrador(@PathVariable int id) {
-        administradorService.deleteAdministrador(id);
+    public ResponseEntity<Void> deleteCarrera(@PathVariable int id) {
+        carreraService.deleteCarrera(id);
         return ResponseEntity.noContent().build();
     }
 }
