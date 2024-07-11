@@ -34,4 +34,65 @@ public class Especialista {
     @OneToOne
     @JoinColumn(name = "id_usuario", nullable = false, unique = true)
     private Usuario usuario;
+
+    // Constructores
+    public Especialista() {}
+
+    public Especialista(Especialidad especialidad, String n_licencia, Boolean activo, Persona persona, Usuario usuario) {
+        this.especialidad = especialidad;
+        this.n_licencia = n_licencia;
+        this.activo = activo;
+        this.persona = persona;
+        this.usuario = usuario;
+    }
+
+    // Getters y Setters
+    public Integer getId_especialista() {
+        return id_especialista;
+    }
+
+    public void setId_especialista(Integer id_especialista) {
+        this.id_especialista = id_especialista;
+    }
+
+    public Especialidad getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(Especialidad especialidad) {
+        this.especialidad = especialidad;
+    }
+
+    public String getN_licencia() {
+        return n_licencia;
+    }
+
+    public void setN_licencia(String n_licencia) {
+        this.n_licencia = n_licencia;
+    }
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
+    }
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
 }
